@@ -121,7 +121,11 @@
     <Compile Include="Playlist\SessionInfoTerm.cs" />
     <Compile Include="Playlist\Static.cs" />
     <Compile Include="Playlist\StaticArgument.cs" />
+    <Compile Include="Song\Profile.cs" />
+    <Compile Include="Song\ProfileResponse.cs" />
+    <Compile Include="Song\ProfileArgument.cs" />
     <Compile Include="Song\FingerprintArgument.cs" />
+    <Compile Include="Song\ForeignId.cs" />
     <Compile Include="Song\IdentifyResponse.cs" />
     <Compile Include="Song\Identify.cs" />
     <Compile Include="Song\FingerprintMetadata.cs" />

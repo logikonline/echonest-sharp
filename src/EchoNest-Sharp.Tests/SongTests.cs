@@ -210,7 +210,6 @@ namespace EchoNest.Tests
 
                 IdentifyResponse identifyResponse = session.Query<Identify>().Execute(fingerprintArgument);
 
-                //assert
                 Assert.IsNotNull(identifyResponse);
                 Assert.IsNotNull(identifyResponse.Songs);
 
@@ -220,6 +219,31 @@ namespace EchoNest.Tests
                 Assert.AreEqual("Michael Jackson", song.ArtistName);
 
                 Console.WriteLine();
+
+            }
+        }
+
+        [TestCase("SOHJOLH12A6310DFE5")]
+        public void GetSongProfileById(string songId)
+        {
+            using (EchoNestSession session = new EchoNestSession(ConfigurationManager.AppSettings.Get("echoNestApiKey")))
+            {
+                ProfileArgument profileArgument = new ProfileArgument { SongIds = {songId}};
+
+                profileArgument.Bucket = SongBucket.IdMusicBrainz | SongBucket.IdLyricFindUs| SongBucket.AudioSummary | SongBucket.ArtistFamiliarity;
+
+                Song.ProfileResponse profileResponse = session.Query<Song.Profile>().Execute(profileArgument);
+
+                Assert.IsNotNull(profileResponse);
+                Assert.IsNotNull(profileResponse.Songs);
+
+                var song = profileResponse.Songs.FirstOrDefault();
+
+                Assert.IsTrue(song.Title.StartsWith("Karma Police"));
+                Assert.AreEqual("Radiohead", song.ArtistName);
+
+                Assert.IsNotEmpty(song.ForeignIds);
+
                 Console.WriteLine();
 
             }

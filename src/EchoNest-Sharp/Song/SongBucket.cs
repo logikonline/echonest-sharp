@@ -64,6 +64,13 @@ namespace EchoNest.Song
         ///     131072= id:rdio-us-streaming
         /// </summary>
         [Description("id:rdio-us-streaming")]
-        IdRdioUsStreaming = 131072
+        IdRdioUsStreaming = 131072,
+
+        /// <summary>
+        /// 262144= id:lyricfind-US
+        /// </summary>
+        [Description("id:lyricfind-US")]
+        IdLyricFindUs = 262144
+
     }
 }

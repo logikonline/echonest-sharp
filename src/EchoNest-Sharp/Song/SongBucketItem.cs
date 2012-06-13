@@ -36,5 +36,8 @@ namespace EchoNest.Song
         [DataMember(Name = "tracks")]
         public List<TracksItem> Tracks { get; set; }
 
+        [DataMember(Name = "foreign_ids")]
+        public List<ForeignId> ForeignIds { get; set; }
+
     }
 }
